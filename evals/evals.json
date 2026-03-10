@@ -1,0 +1,26 @@
+{
+  "skill_name": "installer-runtime",
+  "evals": [
+    {
+      "id": 1,
+      "name": "fresh-install",
+      "prompt": "Using the install-pack-google-workspace-apps-script pack, help me install Google Workspace and Apps Script. Use walkthrough mode (no Bash). For all manual confirmation prompts, assume YES and use these synthetic values: workspace domain is verified, super admin confirmed, GCP project id is pilot-test-001, project is active, all three required APIs are enabled, consent is configured, script id is AKfycbx123, target mode is create, script type is standalone, source of truth is local_repo, sync mode is one_way_push. Proceed automatically through all phases without waiting for input.",
+      "expected_output": "Claude completes all four phases (workspace, gcp, script, verify) in order and writes a valid install-state.yaml containing all 16 required facts and four transition evidence records.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "resume-from-workspace",
+      "prompt": "Using the install-pack-google-workspace-apps-script pack, resume my installation in walkthrough mode. An install-state.yaml already exists. For any remaining manual prompts, confirm YES and use synthetic values: GCP project id is pilot-test-001, project is active, all three required APIs enabled, consent configured, script id is AKfycbx456, target mode is existing, script type is bound, source of truth is local_repo, sync mode is one_way_push. Proceed automatically.",
+      "expected_output": "Claude announces gcp as the resume point (not workspace), skips workspace probes entirely, and completes gcp through verify phases, writing a valid install-state.yaml with all phases complete.",
+      "files": ["evals/seed-state-workspace-complete.yaml"]
+    },
+    {
+      "id": 3,
+      "name": "deploy-routing-bundle-paste",
+      "prompt": "Using the install-pack-google-workspace-apps-script pack, continue my installation in walkthrough mode. An install-state.yaml already exists with workspace and gcp complete. clasp is not installed on this system. For script contract prompts: script id is AKfycbx789, target mode is create, script type is standalone, source of truth is local_repo, sync mode is one_way_push. Proceed automatically.",
+      "expected_output": "Claude reaches the script phase, detects clasp is unavailable, sets script.method to bundle_paste, executes action.script.deploy_manual, and writes install-state.yaml with script.method = bundle_paste.",
+      "files": ["evals/seed-state-gcp-complete.yaml"]
+    }
+  ]
+}

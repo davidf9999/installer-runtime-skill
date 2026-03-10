@@ -1,0 +1,25 @@
+current_phase: gcp
+status: running
+facts:
+  workspace.domain_verified: true
+  workspace.super_admin_confirmed: true
+evidence:
+  - ts: "2026-03-10T09:00:00Z"
+    phase: workspace
+    item_id: probe.workspace.domain_verified
+    item_type: probe
+    result: pass
+    summary: domain verified
+  - ts: "2026-03-10T09:01:00Z"
+    phase: workspace
+    item_id: probe.workspace.super_admin_confirmed
+    item_type: probe
+    result: pass
+    summary: super admin confirmed
+  - ts: "2026-03-10T09:02:00Z"
+    phase: workspace
+    item_id: transition:workspace
+    item_type: manual
+    result: pass
+    summary: Transition condition satisfied
+phase_confirmations: {}
