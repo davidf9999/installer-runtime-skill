@@ -1,6 +1,6 @@
 ---
 name: installer-runtime
-description: Orchestrates multi-phase installations using a pack spec (install-spec.yaml) and persisted state (install-state.yaml). Use this skill whenever a user wants to install, set up, configure, or resume a structured installation — especially for Google Workspace, GCP, or Apps Script setups. Also use when the user mentions resuming an installation, running phases, or any workflow involving probes, checkpoints, and state persistence. Use even if the user doesn't say "skill" explicitly — phrases like "help me install", "set up my GCP project", "continue my installation", or "where did I leave off" are all strong triggers.
+description: Use this skill to run or resume a structured multi-phase installation guided by a pack spec and install-state.yaml. Triggers when the user wants to install, set up, or configure a system using an install pack — especially Google Workspace, GCP, or Apps Script. Also triggers for admin onboarding workflows, deployment contract setup, and any time a user mentions resuming, continuing, or checking where they left off in an installation. Recognizes intent even without technical vocabulary: "help me set up Workspace for my org", "where did I leave off", "continue my setup", "walk me through the install" are all strong triggers. Does NOT apply to one-off GCP console tasks, general scripting questions, or requests with no installation/onboarding context.
 ---
 
 # Installer Runtime Skill
